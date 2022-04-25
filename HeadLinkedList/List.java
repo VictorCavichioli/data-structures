@@ -54,4 +54,24 @@ public class List {
         } while (aux != start);
 
     }
+
+    public Integer removeOnStart(){
+        Node aux;
+        aux = start;
+        Integer element = aux.getElement();
+        start = aux.getNext();
+        aux.getPrevious().setNext(start);
+        return element;
+    }
+
+    public Integer removeOnLast(){
+
+        Node aux;
+        aux = start;
+        Integer element = aux.getElement();
+        start = start.getNext();
+        start.setPrevious(aux.getPrevious());
+        return element;
+
+    }
 }
