@@ -13,18 +13,45 @@ public class List {
     }
 
     public void insert(Integer element){
-        Node node = new Node();
-        node.setElement(element);
+        Node newNode = new Node();
+        newNode.setElement(element);
 
         if(isEmpty()){
-            node.setNext(node);
-            node.setPrevious(node);
-            start = node;
+            newNode.setNext(newNode);
+            newNode.setPrevious(newNode);
+            start = newNode;
+        }else {
+            Node aux = start;
+            while (aux.getNext() != start){
+                aux = aux.getNext();
+            }
+            start.setPrevious(newNode);
+            aux.setNext(newNode);
+            newNode.setPrevious(aux);
+            newNode.setNext(start);
         }
 
     }
 
     public void displayInOrder(){
+
+        Node aux;
+        aux = start; //inicio não quebrar o sistema, n perder a referencia do inicio
+        do{
+            System.out.println("Element: " + aux.getElement());
+            aux = aux.getNext();
+        } while (aux != start);
+
+    }
+
+    public void displayInReverseOrder(){
+
+        Node aux;
+        aux = start; //inicio não quebrar o sistema, n perder a referencia do inicio
+        do{
+            System.out.println("Element: " + aux.getElement());
+            aux = aux.getPrevious();
+        } while (aux != start);
 
     }
 }
