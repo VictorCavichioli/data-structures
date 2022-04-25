@@ -12,7 +12,6 @@ public class Test {
         list.insert(99);
 
         list.removeOnStart();
-        list.removeOnLast();
 
         System.out.println("Testanto exibição em ordem normal");
         list.displayInOrder();
