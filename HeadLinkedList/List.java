@@ -67,7 +67,13 @@ public class List {
 
     public Integer removeOnLast(){
 
-        return 2;
+        Node aux;
+        aux = start.getPrevious();
+        Integer element = aux.getElement();
+        aux.getPrevious().setNext(start);
+        start.setPrevious(aux.getPrevious());
+
+        return element;
 
     }
 }
